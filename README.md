@@ -1,1 +1,1 @@
-# gp-documentation
+# gp-boilerplate-documentation
