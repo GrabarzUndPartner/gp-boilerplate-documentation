@@ -40,12 +40,12 @@
         * {
           pointer-events: none;
         }
+        font-size: calc(13 / 375 * 100)vw;
+        @media (--screen-xs) {
+          font-size: 13px;
+        }
         span {
-          font-size: calc(12 / 375 * 100)vw;
           line-height: 1;
-          @media (--screen-xs) {
-            font-size: 12px;
-          }
         }
         &.selected {
           font-weight: bold;
@@ -59,14 +59,14 @@
         &:hover {
           color: $docs_color_link_primary_hover;
         }
-        span {
-          font-size: calc(12 / 375 * 100)vw;
-          line-height: 1;
-        }
+        font-size: calc(12 / 375 * 100)vw;
         @media (--screen-xs) {
-          span {
-            font-size: 12px;
-          }
+          font-size: 11px;
+        }
+        span {
+          line-height: 1;
+          position: relative;
+          top: 1px;
         }
       }
       &__toggle {
@@ -90,6 +90,8 @@
           text-align: center;
           line-height: 1;
           font-size: 1em;
+          top: -1px;
+          position: relative;
           width: 18px;
           height: 1em;
           @media (--screen-xs-max) {

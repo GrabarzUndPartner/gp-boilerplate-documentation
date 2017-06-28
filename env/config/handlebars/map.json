@@ -65,7 +65,7 @@
       "layout": "gp-boilerplate-documentation/modules/layouts/detail",
       "config": "gp-boilerplate/env/config/handlebars/config",
       "files": {
-        "src": ["./src/**/*.hbs"],
+        "src": ["./src/**/*.hbs", "!./src/modules/layouts/**/*.hbs", "!./src/modules/panel/**/*.hbs"],
         "dest": "<%= destination %>/docs/",
         "base": "./"
       }
