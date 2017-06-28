@@ -1,0 +1,14 @@
+---
+doc: #
+preview: #
+style: #
+---
+<section class="module controller" data-module="gp-boilerplate-documentation/modules/detail/preview" data-controller="gp-boilerplate-documentation/modules/detail/Preview" role="preview"{{#if references}} data-references='{{{stringify references}}}'{{/if}}{{#if reference-options}} data-reference-options='{{{stringify reference-options}}}'{{/if}}>
+  <span data-hook="backgroundWrapper"></span>
+  <div class="grid-wrapper" data-hook="previewWrapper">
+    {{{preview}}}
+  </div>
+  <style type="text/css">
+    {{{style}}}
+  </style>
+</section>

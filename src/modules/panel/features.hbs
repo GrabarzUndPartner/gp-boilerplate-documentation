@@ -1,0 +1,30 @@
+<div class="panel__features__options" data-hook="featuresOptions">
+  {{#each this}}
+    <fieldset data-hook="{{{name}}}" {{#if active}} class="js-active" {{/if}}>
+      <legend>{{> "../elements/checkbox" feature-name=name name="active" chunk="gp-boilerplate-documentation" label=title}}</legend>
+      {{#if options.length}}
+        <div>
+          <ul>
+            {{#each options}}
+              {{#if typeBoolean}}
+                <li>{{> "../elements/checkbox" this feature-name=../name name=name chunk="gp-boilerplate-documentation" label=title}}</li>
+              {{/if}}
+              {{#if typeText}}
+                <li>{{> "../elements/input-field" this typeText=true feature-name=../name name=name chunk="gp-boilerplate-documentation" label=title}}</li>
+              {{/if}}
+              {{#if typeColor}}
+                <li>{{> "../elements/input-field" this typeColor=true feature-name=../name name=name chunk="gp-boilerplate-documentation" label=title}}</li>
+              {{/if}}
+              {{#if typeNumber}}
+                <li>{{> "../elements/input-field" this typeNumber=true feature-name=../name name=name chunk="gp-boilerplate-documentation" label=title}}</li>
+              {{/if}}
+              {{#if typeSelect}}
+                <li>{{> "../elements/input-field" this typeSelect=true feature-name=../name name=name chunk="gp-boilerplate-documentation" label=title}}</li>
+              {{/if}}
+            {{/each}}
+          </ul>
+        </div>
+      {{/if}}
+    </fieldset>
+  {{/each}}
+</div>

@@ -1,0 +1,125 @@
+  @import "../../vars.pcss";
+  @import "../panel.pcss";
+  @import "../elements/input-field.pcss";
+  @import "../elements/checkbox.pcss";
+  .module[data-module="gp-boilerplate-documentation/modules/panel/debug"] {
+    @extend .module[data-module*="gp-boilerplate-documentation/modules/panel"];
+    font-family: sans-serif;
+    position: fixed;
+    left: 50%;
+    top: 0;
+    z-index: 10000000;
+    font-size: 0;
+    text-align: center;
+    ul li, fieldset legend {
+      font-size: 12px;
+      [data-module="gp-boilerplate-documentation/modules/elements/input-field"] {
+        select {
+          padding: 2px 5px;
+        }
+      }
+    }
+    >span {
+      z-index: 11000000;
+      position: relative;
+      cursor: pointer;
+      display: inline-block;
+      transition: opacity 350ms ease, color 175ms ease, background-color 350ms ease;
+      background: #ccc;
+      color: #666;
+      text-shadow: 0 0 1px #fff;
+      border-radius: 0 0 8px 8px;
+      border: solid rgba(0, 0, 0, 0.1) 1px;
+      border-top-width: 0;
+      font-weight: bold;
+      box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+      opacity: 0.4;
+      text-align: center;
+      font-size: 12px;
+      padding: 5px 10px;
+      .touchevents &:active, .no-touchevents &:hover {
+        opacity: 1;
+      }
+    }
+    .panel__features {
+      z-index: 11000000;
+      pointer-events: none;
+      display: block;
+      position: absolute;
+      top: calc(30 + 12)px;
+      font-size: 1rem;
+      text-align: left;
+      background: #eee;
+      color: #666;
+      text-shadow: 0 0 1px #fff;
+      border: solid rgba(0, 0, 0, 0.15) 1px;
+      border-radius: 4px;
+      box-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+      transition: transform 500ms ease, opacity 350ms ease;
+      transform: scale(0);
+      transform-origin: top center;
+      opacity: 0;
+      fieldset {
+        border: none;
+        margin: 0;
+        padding: 0;
+        legend {
+          box-sizing: border-box;
+          width: 100%;
+          background: #ccc;
+          display: block;
+          padding: 5px 10px;
+          border-bottom: solid #aaa 1px;
+          title {
+            white-space: nowrap;
+          }
+        }
+        &:last-child {
+          legend {
+            border-bottom: none;
+          }
+        }
+        >div {
+          overflow: hidden;
+          max-height: 0;
+        }
+        &.js-active {
+          >div {
+            max-height: none;
+          }
+        }
+      }
+      ul {
+        padding: 0;
+        white-space: nowrap;
+        background-color: #eee;
+        li {
+          padding: 5px 10px;
+          &:nth-of-type(even) {
+            background-color: #fff;
+          }
+        }
+      }
+    }
+    &.js-visible {
+      opacity: 1;
+      >span {
+        opacity: 1;
+        background-color: #eee;
+      }
+      >.panel__features {
+        pointer-events: auto;
+        transform: scale(1);
+        opacity: 1;
+        >ul {
+          li {
+            title {
+              input {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }

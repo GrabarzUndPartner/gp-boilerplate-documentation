@@ -1,0 +1,86 @@
+@import "../../../vars.pcss";
+.js_active_debug__panel__partial_marker {
+  [data-partial^="atoms/"], [data-partial^="molecules/"], [data-partial^="organisms/"] {
+    position: relative;
+    &:after, &:before {
+      pointer-events: none;
+      font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+      opacity: 0;
+      z-index: $docs_panel_debug_partial_highlight_z_index;
+    }
+    &:before {
+      transform: scale(1);
+      outline: dashed rgba(0, 0, 0, 0.2) 1px;
+      outline-offset: 10px;
+      opacity: 0.3;
+    }
+    &:hover {
+      &:after, &:before {
+        opacity: 1;
+      }
+      &:before {
+        outline-style: solid;
+      }
+    }
+    &:before {
+      display: block;
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      padding: 4px;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+  }
+  [data-partial^="atoms/"] {
+    &:before {
+      outline-color: blue;
+    }
+    &:after {
+      white-space: nowrap;
+      content: "Atom [ " attr(data-partial) " ]";
+      background-color: blue;
+      color: white;
+      bottom: -10px;
+      right: 0;
+      transform: translateY(50%);
+      z-index: calc($docs_panel_debug_partial_highlight_z_index + 3);
+    }
+  }
+  [data-partial^="molecules/"] {
+    &:before {
+      outline-color: orange;
+    }
+    &:after {
+      content: "Molecules [ " attr(data-partial) " ]";
+      background-color: orange;
+      color: black;
+      top: -10px;
+      right: 0%;
+      transform: translateY(-50%);
+      z-index: calc($docs_panel_debug_partial_highlight_z_index + 2);
+    }
+  }
+  [data-partial^="organisms/"] {
+    &:before {
+      outline-color: red;
+    }
+    &:after {
+      content: "Organisms [ " attr(data-partial) " ]";
+      bottom: -10px;
+      left: 0%;
+      transform: translateY(50%);
+      background-color: red;
+      color: white;
+      z-index: calc($docs_panel_debug_partial_highlight_z_index + 1);
+    }
+  }
+}

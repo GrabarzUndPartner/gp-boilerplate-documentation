@@ -1,0 +1,60 @@
+.module[data-module="gp-boilerplate-documentation/modules/detail"] {
+  position: relative;
+  display: block;
+  margin: 0;
+  min-height: 100%;
+  &:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: calc(72/16)rem;
+  }
+  h1[data-module="gp-boilerplate-documentation/modules/elements/headline"], h2[data-module="gp-boilerplate-documentation/modules/elements/headline"], h3[data-module="gp-boilerplate-documentation/modules/elements/headline"] {
+    color: $docs_color_base;
+    margin: 20px 0;
+    padding: 10px 15px;
+    font-weight: normal;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.8);
+  }
+  h1[data-module="gp-boilerplate-documentation/modules/elements/headline"] {
+    margin: 0;
+    color: rgba(0, 0, 0, 0.8);
+    letter-spacing: 1px;
+    font-size: 20px;
+    .partial {
+      font-style: italic;
+      font-size: 12px;
+      >span {
+        display: inline-block;
+        &:after {
+          margin: 0 5px;
+          content: "/";
+          display: inline-block;
+        }
+        &:last-child {
+          &:after {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  h2[data-module="gp-boilerplate-documentation/modules/elements/headline"] {
+    background: #ccc;
+    font-size: 20px;
+  }
+  h3[data-module="gp-boilerplate-documentation/modules/elements/headline"] {
+    font-size: 16px
+  }
+  >section {
+    h3[data-module="gp-boilerplate-documentation/modules/elements/headline"] {
+      padding-left: 0;
+      padding-right: @padding-left;
+      margin-left: @padding-left;
+      margin-right: @padding-left;
+    }
+    >pre {
+      margin: 0;
+    }
+  }
+}

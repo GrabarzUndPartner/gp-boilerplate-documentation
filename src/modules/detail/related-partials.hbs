@@ -1,0 +1,12 @@
+---
+partials: #
+---
+<section class="module" data-module="gp-boilerplate-documentation/modules/detail/related-partials" role="related-partials">
+  <nav aria-label="integrated partials">
+    <ul>
+      {{#each partials}}
+        <li>{{{mixin "gp-boilerplate-documentation/modules/elements/link" this}}}</li>
+      {{/each}}
+    </ul>
+  </nav>
+</section>

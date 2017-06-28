@@ -1,0 +1,11 @@
+---
+h1: #
+h2: #
+h3: true
+h4: #
+h5: #
+h6: #
+class: #String
+text: "Headline"
+---
+<{{#if h1}}h1{{else}}{{#if h2}}h2{{else}}{{#if h3}}h3{{else}}{{#if h4}}h4{{else}}{{#if h5}}h5{{else}}h6{{/if}}{{/if}}{{/if}}{{/if}}{{/if}} class="doc{{#if class}} {{{class}}}{{/if}}" data-module="gp-boilerplate-documentation/modules/elements/headline">{{#block "headline-content"}}{{{text}}}{{/block}}</{{#if h1}}h1{{else}}{{#if h2}}h2{{else}}{{#if h3}}h3{{else}}{{#if h4}}h4{{else}}{{#if h5}}h5{{else}}h6{{/if}}{{/if}}{{/if}}{{/if}}{{/if}}>

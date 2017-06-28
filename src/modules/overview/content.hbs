@@ -1,0 +1,16 @@
+---
+name: 'doc-content'
+overlay-message: 'Click on <span class="highlight icon-small-burger"><i></i></span> to open sidebar.<br />Click on <span class="highlight">Template name</span> for show. Use <span class="highlight">ext.</span> for open a new tab.'
+---
+<div class="module controller" data-module="gp-boilerplate-documentation/modules/overview/content" data-controller="gp-boilerplate-documentation/modules/overview/Content" data-chunk="gp-boilerplate-documentation" data-target="[data-module='gp-boilerplate-documentation/modules/overview']">
+  <iframe name="{{{name}}}" frameborder="0" data-hook="frame">iframe is not supported</iframe>
+  <span data-hook="placeholder"></span>
+  {{#if overlay-message}}
+    <div class="content__overlay-message">
+      <div>
+        {{{overlay-message}}}
+      </div>
+    </div>
+  {{/if}}
+  <span class="content__loading"></span>
+</div>

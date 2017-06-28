@@ -1,0 +1,10 @@
+<div class="module controller{{#if class}} {{{class}}}{{/if}}" data-module="gp-boilerplate-documentation/modules/panel{{#if panel-name}}/{{{panel-name}}}{{/if}}" data-controller="gp-boilerplate-documentation/modules/{{#if panel-controller}}{{{panel-controller}}}{{else}}Panel{{/if}}"{{#if chunk}} data-chunk="{{{chunk}}}"{{/if}}{{#each attributes}} data-{{{@key}}}='{{{this}}}'{{/each}}>
+
+  <span data-hook="panelTitle">{{{title}}}</span>
+
+  <div class="panel__features" data-hook="panelFeatures">
+    <ul></ul>
+  </div>
+  <div class="panel__optionals" data-hook="panelOptionals"></div>
+
+</div>

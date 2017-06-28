@@ -1,0 +1,32 @@
+---
+headlines:
+  html:
+    text: 'HTML'
+  hbs:
+    text: 'Handlebars'
+  json:
+    text: 'JSON'
+  refs:
+    text: 'References'
+html:
+hbs: #
+json: #
+---
+<section class="module" data-module="gp-boilerplate-documentation/modules/detail/code" role="code">
+  {{#if this.html}}
+  {{{mixin "gp-boilerplate-documentation/modules/elements/headline" this.headlines.html h3=true}}}
+  <pre role="code-html"><code class="hljs">{{{this.html}}}</code></pre>
+  {{/if}}
+  {{#if this.hbs}}
+  {{{mixin "gp-boilerplate-documentation/modules/elements/headline" this.headlines.hbs h3=true}}}
+  <pre role="code-hbs"><code class="hljs">{{{this.hbs}}}</code></pre>
+  {{/if}}
+  {{#if this.json}}
+  {{{mixin "gp-boilerplate-documentation/modules/elements/headline" this.headlines.json h3=true}}}
+  <pre role="code-json"><code class="hljs">{{{this.json}}}</code></pre>
+  {{/if}}
+  {{#if this.refs}}
+  {{{mixin "gp-boilerplate-documentation/modules/elements/headline" this.headlines.refs h3=true}}}
+  <pre role="code-refs"><code class="hljs">{{{this.refs}}}</code></pre>
+  {{/if}}
+</section>

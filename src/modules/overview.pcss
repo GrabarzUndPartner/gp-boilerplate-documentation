@@ -1,0 +1,28 @@
+.module[data-module*="gp-boilerplate-documentation/modules/overview"] {
+  h3[data-module="gp-boilerplate-documentation/modules/elements/headline"] {
+    margin: 0;
+    padding: calc(16 / 375 * 100)vw calc(8 / 375 * 100)vw;
+    font-size: calc(14 / 375 * 100)vw;
+    letter-spacing: calc(1 / 375 * 100)vw;
+    text-shadow: 0 0 @letter-spacing #ffffff;
+    @media (--screen-xs) {
+      padding: 20px 10px;
+      font-size: 16px;
+      letter-spacing: 1px;
+      text-shadow: 0 0 @letter-spacing #ffffff;
+    }
+  }
+}
+
+.module[data-module="gp-boilerplate-documentation/modules/overview"] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: @width;
+  background-color: #fff;
+  .preview>& {
+    position: relative;
+    height: 50vh;
+  }
+}

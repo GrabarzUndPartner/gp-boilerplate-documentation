@@ -1,0 +1,103 @@
+@import "../../vars.pcss";
+@import "../panel.pcss";
+.module[data-module="gp-boilerplate-documentation/modules/panel/preview"] {
+  @extend .module[data-module*="gp-boilerplate-documentation/modules/panel"];
+  background: #fff;
+  font-size: 14px;
+  opacity: 0.6;
+  transition: opacity 350ms ease;
+  >span {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    padding-left: 35px;
+    font-weight: bold;
+    background-color: #ddd;
+    cursor: pointer;
+    transition: background-color 350ms ease;
+    &:before, &:after {
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      padding: 10px 15px;
+      content: "+";
+      font-size: 18px;
+      line-height: calc(14 / 18);
+      transition: transform 350ms ease;
+    }
+    &:before {
+      transform: scale(1) rotate(0);
+    }
+    &:after {
+    content: "-";
+      transform: scale(0) rotate(360deg);
+    }
+  }
+  &.js-visible {
+    >span {
+      &:before {
+        transform: scale(0) rotate(360deg);
+      }
+      &:after {
+        transform: scale(1) rotate(0);
+      }
+    }
+  }
+  .panel {
+    &__features {
+      max-height: 0;
+      overflow: hidden;
+      &__options {
+        padding: 10px 20px;
+        fieldset {
+          >div {
+            overflow: hidden;
+            max-height: 0;
+          }
+          &.js-active {
+            >div {
+              max-height: none;
+            }
+          }
+        }
+        ul {
+          li {
+            padding: 10px;
+          }
+        }
+      }
+    }
+  }
+  fieldset {
+    &+fieldset {
+      margin-top: 10px;
+    }
+    legend {
+      padding: 10px;
+      padding-left: 14px;
+      .preview__title {
+        margin-left: 10px;
+        font-weight: bold;
+      }
+    }
+    >div {
+      border-left: solid #ccc 4px;
+      margin-left: -10px;
+      padding-left: 10px;
+    }
+  }
+  &.js-visible, &:hover {
+    opacity: 1;
+  }
+  &.js-visible {
+    >span {
+      background-color: #ccc;
+    }
+    .panel {
+      &__features {
+        max-height: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+---
+docs:
+  concept: {}
+  refs: {}
+headlines:
+  preview:
+    text: 'Preview'
+  code:
+    text: 'Code'
+  related-partials:
+    text: 'Related Partials'
+---
+<section class="module" data-module="gp-boilerplate-documentation/modules/detail">
+
+  {{{mixin "gp-boilerplate-documentation/modules/debug" auto-initialize=true}}}
+
+  {{#mixin "gp-boilerplate-documentation/modules/elements/headline" this.headlines.preview h1=true}}
+    {{#content "headline-content"}}{{{text}}} <span class="partial">{{#each ../partialPath}}<span>{{{this}}}</span>{{/each}}</span>{{/content}}
+  {{/mixin}}
+
+  {{{mixin "gp-boilerplate-documentation/modules/detail/preview" preview=preview style=style docs=docs references=docs.refs reference-options=docs.ref-options}}}
+
+  {{{mixin "gp-boilerplate-documentation/modules/elements/headline" this.headlines.code h2=true}}}
+  {{{mixin "gp-boilerplate-documentation/modules/detail/code" code}}}
+
+  {{#with docs}}
+    {{#if concept}}{{{mixin "gp-boilerplate-documentation/modules/detail/concept" concept}}}{{/if}}
+  {{/with}}
+  {{#if relatedPartials.length}}
+  {{{mixin "gp-boilerplate-documentation/modules/elements/headline" this.headlines.related-partials h2=true}}}
+  {{{mixin "gp-boilerplate-documentation/modules/detail/related-partials" partials=relatedPartials}}}
+  {{/if}}
+
+</section>

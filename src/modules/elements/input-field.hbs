@@ -1,0 +1,6 @@
+<label class="module" data-module="gp-boilerplate-documentation/modules/elements/input-field"><span>{{{label}}}:</span>
+    {{#if typeText}}<input type="text"{{#if value}} value="{{{value}}}"{{/if}} placeholder="{{{title}}}" data-feature-name="{{{feature-name}}}" data-name="{{{name}}}" />{{/if}}
+    {{#if typeColor}}<input type="color"{{#if value}} value="{{{value}}}"{{/if}}{{#if feature-name}} data-feature-name="{{{feature-name}}}"{{/if}} data-feature-name="{{{feature-name}}}" data-name="{{{name}}}" />{{/if}}
+    {{#if typeNumber}}<input type="number"{{#if value}} value="{{{value}}}"{{/if}} data-feature-name="{{{feature-name}}}" data-name="{{{name}}}" />{{/if}}
+    {{#if typeSelect}}<select data-feature-name="{{{feature-name}}}" data-name="{{{name}}}">{{#each values}}<option value="{{{this}}}">{{{@key}}}</option>{{/each}}</select>{{/if}}
+  </label>

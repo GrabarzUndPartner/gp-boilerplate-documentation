@@ -1,0 +1,84 @@
+.module[data-module="gp-boilerplate-documentation/modules/detail/concept"] {
+  position: fixed;
+  z-index: calc($docs_zIndex + 10);
+  font-size: 1rem;
+  top: 15px;
+  right: 15px;
+  >a {
+    i {
+      &:after {
+        content: '?';
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 24px;
+        font-weight: bold;
+        color: #666;
+      }
+    }
+  }
+  ul {
+    li+li {
+      margin-top: 10px;
+    }
+  }
+  a {
+    transition: opacity 350ms ease, box-shadow 350ms ease;
+    position: relative;
+    cursor: pointer;
+    padding: 5px;
+    display: block;
+    opacity: 0.4;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.8);
+    i {
+      position: relative;
+      display: block;
+      width: 24px;
+      font-style: normal;
+      background-size: 100% auto;
+      background-repeat: no-repeat;
+      background-position: center;
+      &:before {
+        display: block;
+        content: "";
+        padding-top: 100%;
+      }
+    }
+    &:before {
+      transition: opacity 500ms ease, transform 500ms ease;
+      content: attr(title);
+      position: absolute;
+      right: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 10px;
+      letter-spacing: (1 / 3)px;
+      text-align: center;
+      margin-right: 10px;
+      color: #333;
+      opacity: 0;
+      transform: translateY(-50%) translateX(22%);
+      text-shadow: 0 0 8px #fff;
+    }
+    &:after {
+      content: attr(data-symbol);
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      font-size: 8px;
+      color: #ccc;
+    }
+    .touchevents &:active, .no-touchevents &:hover {
+      opacity: 1;
+      box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+      &:before {
+        transform: translateY(-50%) translateX(0%);
+        opacity: 1;
+      }
+    }
+  }
+}

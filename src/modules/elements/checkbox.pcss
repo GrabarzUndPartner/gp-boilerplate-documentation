@@ -1,0 +1,48 @@
+@import "../../vars.pcss";
+.module[data-module="gp-boilerplate-documentation/modules/elements/checkbox"] {
+  display: inline-block;
+  cursor: pointer;
+  i {
+    display: inline-block;
+    margin-top: -1px;
+    vertical-align: middle;
+    border: solid $docs_panel_debug_checkbox_border_color 1px;
+    background: $docs_panel_debug_checkbox_background;
+    border-radius: 6px;
+    width: 23px;
+    height: 8px;
+    line-height: 1;
+    position: relative;
+    &:before {
+      content: "";
+      width: 12px;
+      height: 12px;
+      background: blue;
+      display: block;
+      position: absolute;
+      margin-top: -3px;
+      margin-left: -2px;
+      transform: translateX(0%);
+      will-change: transform;
+      transition: transform 175ms ease, background 175ms ease;
+      border: solid $docs_panel_debug_checkbox_border_color 1px;
+      background: $docs_panel_debug_checkbox_handle_background;
+      box-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
+      border-radius: 50%;
+    }
+  }
+  input {
+    position: absolute;
+    display: none;
+  }
+  span {
+    font-weight: normal;
+    margin-left: 10px;
+  }
+  input:checked+i {
+    &:before {
+      transform: translateX(100%);
+      background: #29a1f7;
+    }
+  }
+}

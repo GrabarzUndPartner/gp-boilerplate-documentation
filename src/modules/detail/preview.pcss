@@ -1,0 +1,24 @@
+.module[data-module="gp-boilerplate-documentation/modules/detail/preview"] {
+  background-color: #fff;
+  position: relative;
+  padding: calc(30/16)rem 0;
+  >span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAABlBMVEUAAADMzMzIT8AyAAAAAXRSTlMAQObYZgAAAA9JREFUCNdj+M+AHeGQAAB+vw/x4MPOfwAAAABJRU5ErkJggg==');
+    opacity: 0.4;
+  }
+  >div {
+    position: relative;
+    &[data-hook="previewWrapper"] {
+      font-family: initial;
+    }
+  }
+  >div:last-child {
+    margin-top: calc(30/16)rem;
+    margin-bottom: calc(-30/16)rem;
+  }
+}

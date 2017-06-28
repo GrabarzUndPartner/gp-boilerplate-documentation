@@ -1,0 +1,7 @@
+<div class="module controller" data-module="gp-boilerplate-documentation/modules/panel/debug/grid" data-controller="gp-boilerplate-documentation/modules/panel/debug/Grid" data-chunk="gp-boilerplate-documentation/panel/debug"{{#if column-count}} data-column-count="{{{column-count}}}"{{/if}}{{#if target}} data-target="{{{target}}}"{{/if}} data-name="grid" data-title="Grid">
+  <div class="grid-wrapper" data-hook="wrapper">
+    <div class="grid-g" data-hook="columns">
+      {{> "./grid/columns" columns=columns column-count=column-count}}
+    </div>
+  </div>
+</div>

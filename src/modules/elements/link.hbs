@@ -1,0 +1,12 @@
+---
+touch-indicator: false # types: pressure-waves
+id: #string
+class: #string
+url: "http://www."
+title: "Link"
+target: "_self"
+rel: "next"
+---
+{{#mixin "gp-module-ui-link" this module-name="gp-boilerplate-documentation/modules/elements/link"}}
+  {{#content "link-content"}}{{#block "title"}}{{{title}}}{{/block}}{{/content}}
+{{/mixin}}

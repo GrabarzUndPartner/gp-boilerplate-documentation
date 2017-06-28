@@ -1,0 +1,16 @@
+---
+config:
+  show-menu: false
+  show-overlay: true
+---
+<div class="module controller" data-module="gp-boilerplate-documentation/modules/overview" data-controller="gp-boilerplate-documentation/modules/Overview" data-chunk="gp-boilerplate-documentation" {{#each config}} data-{{{@key}}}="{{{this}}}"{{/each}}>
+
+  {{#block "menu"}}
+    {{{mixin "gp-boilerplate-documentation/modules/overview/menu" menu target='[data-module="gp-boilerplate-documentation/modules/overview"]'}}}
+  {{/block}}
+
+  {{#block "content"}}
+    {{{mixin "gp-boilerplate-documentation/modules/overview/content" content target='[data-module="gp-boilerplate-documentation/modules/overview"]'}}}
+  {{/block}}
+
+</div>

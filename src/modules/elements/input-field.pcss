@@ -1,0 +1,44 @@
+@import "../../vars.pcss";
+.module[data-module="gp-boilerplate-documentation/modules/elements/input-field"] {
+  span {
+    display: inline-block;
+    vertical-align: middle;
+    min-width: 60px;
+    padding-right: 10px;
+  }
+  input[type="text"], input[type="number"], input[type="color"] {
+    display: inline-block;
+    appearance: none;
+    background: #fff;
+    border-radius: 2px;
+    border: solid #ccc 1px;
+    padding: 2px 5px;
+    font-size: 12px;
+    line-height: 1;
+    color: #666;
+    vertical-align: middle;
+  }
+  input[type="color"] {
+    padding: 0;
+    height: 16px;
+  }
+  input[type="color" i]::-webkit-color-swatch-wrapper {
+    padding: 0;
+  }
+  input[type="color" i]::-webkit-color-swatch {
+    border: none;
+  }
+  select {
+    appearance: none;
+    background: #fff;
+    border-radius: 2px;
+    border: solid #ccc 1px;
+    padding: 2px 5px;
+    padding: 4px 10px;
+    font-size: 12px;
+    line-height: 1;
+    color: #666;
+    vertical-align: middle;
+    display: inline-block;
+  }
+}

@@ -1,0 +1,51 @@
+@import "../../../../../generated/pcss/grid/default.variables.pcss";
+$doc_debug_grid_background_color: #ff00ff;
+.module[data-module="gp-boilerplate-documentation/modules/panel/debug/grid"] {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10000000;
+  pointer-events: none;
+  div.grid-wrapper {
+    height: 100%;
+    @media (--screen-xs-max) {
+      margin: 0 -1px;
+    }
+    div {
+      height: 100%;
+      div {
+        position: relative;
+        color: $doc_debug_grid_background_color;
+        span {
+          position: relative;
+          top: 0;
+          left: 0px;
+          display: block;
+          width: 100%;
+          height: 100%;
+          background: currentColor;
+          border: solid currentColor;
+          border-width: 0 1px;
+        }
+        &:before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+          border: solid currentColor;
+          border-width: 0 1px;
+          filter: invert();
+        }
+      }
+    }
+  }
+  &.js-visible.js-active {
+    display: block;
+  }
+}
