@@ -73,7 +73,6 @@ export default Optional.extend({
         }, this);
         this.el.removeAttribute('style');
         viewport.on(viewport.EVENT_TYPES.RESIZE, this.refresh.bind(this));
-        console.log(this.model.title);
         // Initialize Chunks
         this.initializeOptionals();
 
