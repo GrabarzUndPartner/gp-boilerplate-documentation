@@ -24,7 +24,11 @@ export default Feature.extend({
                 type: 'string',
                 required: false
             },
-            gridFluid: {
+            gridWrapper: {
+                type: 'boolean',
+                required: true
+            },
+            gridWrapperFluid: {
                 type: 'boolean',
                 required: true
             },
@@ -45,7 +49,9 @@ export default Feature.extend({
 
     options: function() {
         return new Promise(function(resolve) {
-            this.model.addOption('gridFluid', 'Fluid Grid?', 'boolean').on('change:gridFluid', onChangeGridFluid, this)
+            this.model
+                .addOption('gridWrapper', 'Has Grid-Wrapper?', 'boolean').on('change:gridWrapper', onChangeGridWrapper, this)
+                .addOption('gridWrapperFluid', 'Has Fluid Grid?', 'boolean').on('change:gridWrapperFluid', onChangeGridWrapperFluid, this)
                 .addOption('customBackground', 'Custom Background Active?', 'boolean').on('change:customBackground', onChangeCustomBackground, this)
                 .addOption('customBackgroundColor', 'Custom Background-Color', 'color').on('change:customBackgroundColor', onChangeCustomBackground, this);
             resolve();
@@ -55,7 +61,6 @@ export default Feature.extend({
     ready: function() {
         return Feature.prototype.ready.apply(this, arguments).then(function() {
             this.wrapperEl = document.querySelector(this.model.wrapperSelector);
-            this.wrapperEl.classList.add('grid-wrapper');
             this.backgroundEl = document.querySelector(this.model.backgroundSelector);
             this.model.on('change:active', onChangeActive, this);
         }.bind(this));
@@ -64,12 +69,21 @@ export default Feature.extend({
 });
 
 function onChangeActive(model) {
-    onChangeGridFluid.bind(this)(model);
+    onChangeGridWrapper.bind(this)(model);
+    onChangeGridWrapperFluid.bind(this)(model);
     onChangeCustomBackground.bind(this)(model);
 }
 
-function onChangeGridFluid(model) {
-    if (model.gridFluid && model.active) {
+function onChangeGridWrapper(model) {
+    if (model.gridWrapper && model.active) {
+        this.wrapperEl.classList.add('grid-wrapper');
+    } else {
+        this.wrapperEl.classList.remove('grid-wrapper');
+    }
+}
+
+function onChangeGridWrapperFluid(model) {
+    if (model.gridWrapperFluid && model.active) {
         this.wrapperEl.classList.add('grid-wrapper-fluid');
     } else {
         this.wrapperEl.classList.remove('grid-wrapper-fluid');
