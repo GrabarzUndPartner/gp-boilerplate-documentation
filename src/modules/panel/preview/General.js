@@ -20,6 +20,10 @@ export default Feature.extend({
                 type: 'string',
                 required: false
             },
+            rowSelector: {
+                type: 'string',
+                required: false
+            },
             backgroundSelector: {
                 type: 'string',
                 required: false
@@ -29,6 +33,10 @@ export default Feature.extend({
                 required: true
             },
             gridWrapperFluid: {
+                type: 'boolean',
+                required: true
+            },
+            gridRow: {
                 type: 'boolean',
                 required: true
             },
@@ -52,6 +60,7 @@ export default Feature.extend({
             this.model
                 .addOption('gridWrapper', 'Has Grid-Wrapper?', 'boolean').on('change:gridWrapper', onChangeGridWrapper, this)
                 .addOption('gridWrapperFluid', 'Has Fluid Grid?', 'boolean').on('change:gridWrapperFluid', onChangeGridWrapperFluid, this)
+                .addOption('gridRow', 'Has Grid-Row?', 'boolean').on('change:gridRow', onChangeGridRow, this)
                 .addOption('customBackground', 'Custom Background Active?', 'boolean').on('change:customBackground', onChangeCustomBackground, this)
                 .addOption('customBackgroundColor', 'Custom Background-Color', 'color').on('change:customBackgroundColor', onChangeCustomBackground, this);
             resolve();
@@ -61,6 +70,7 @@ export default Feature.extend({
     ready: function() {
         return Feature.prototype.ready.apply(this, arguments).then(function() {
             this.wrapperEl = document.querySelector(this.model.wrapperSelector);
+            this.rowEl = document.querySelector(this.model.rowSelector);
             this.backgroundEl = document.querySelector(this.model.backgroundSelector);
             this.model.on('change:active', onChangeActive, this);
         }.bind(this));
@@ -71,7 +81,16 @@ export default Feature.extend({
 function onChangeActive(model) {
     onChangeGridWrapper.bind(this)(model);
     onChangeGridWrapperFluid.bind(this)(model);
+    onChangeGridRow.bind(this)(model);
     onChangeCustomBackground.bind(this)(model);
+}
+
+function onChangeGridRow(model) {
+    if (model.gridRow && model.active) {
+        this.rowEl.classList.add('grid-g');
+    } else {
+        this.rowEl.classList.remove('grid-g');
+    }
 }
 
 function onChangeGridWrapper(model) {

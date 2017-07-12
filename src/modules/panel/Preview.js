@@ -38,6 +38,7 @@ export default Panel.extend({
             parentEl: this.panelOptionalsEl,
             optionalsAttributes: {
                 wrapperSelector: '[data-hook=\'previewWrapper\']',
+                rowSelector: '[data-hook=\'previewRow\']',
                 backgroundSelector: '[data-hook=\'backgroundWrapper\']'
             }
         });
