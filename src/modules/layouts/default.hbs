@@ -28,17 +28,6 @@
 
   {% body %}
 
-  {{#if options.watch.status}}
-    {{#if docs}}
-  <script type="text/javascript">
-      if('WebSocket' in window || 'MozWebSocket' in window) {
-        var host = (location.host || 'localhost').split(':')[0];
-        document.write('<script src="//' + host + ':{{options.watch.config.port}}/livereload.js?snipver=1"></' + 'script>');
-      }
-  </script>
-    {{/if}}
-  {{/if}}
-
   {{!-- @TODO JAVASCRIPT CHUNKS - Sets webpackPublicPath variable for override root javascript path. Example: "/js/app.js" -> "/docroot/js/app.js" --}}
   <script type="text/javascript">
     window.webpackPublicPath = '{{{relativeToRoot}}}js/';
