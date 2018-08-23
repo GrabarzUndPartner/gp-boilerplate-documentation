@@ -1,11 +1,9 @@
-"use strict";
+'use strict';
 
 import Controller from 'gp-module-base/Controller';
 import DomModel from 'gp-module-base/DomModel';
-import history from 'gp-module-history';
 
 export default Controller.extend({
-
     modelConstructor: DomModel.extend({
         session: {
             url: {
@@ -45,17 +43,26 @@ export default Controller.extend({
 
     initialize: function() {
         Controller.prototype.initialize.apply(this, arguments);
-        this.model.on('change:url', onChangeUrl.bind(this));
-        if (history.registry.get('url')) {
-            this.model.url = history.registry.get('url').value;
-        }
+
+        require.ensure(
+            [],
+            function(require) {
+                // Chunk Load Debug
+                var history = require('gp-module-history').default;
+                function onChangeUrl(model, url) {
+                    history.update([
+                        {
+                            name: 'url',
+                            value: encodeURIComponent(url)
+                        }
+                    ]);
+                }
+                this.model.on('change:url', onChangeUrl.bind(this));
+                if (history.registry.get('url')) {
+                    this.model.url = history.registry.get('url').value;
+                }
+            }.bind(this),
+            'gp-boilerplate-documentation/overview'
+        );
     }
-
 });
-
-function onChangeUrl(model, url) {
-    history.update([{
-        name: 'url',
-        value: encodeURIComponent(url)
-    }]);
-}
